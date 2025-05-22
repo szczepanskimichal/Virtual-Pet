@@ -12,9 +12,9 @@ class Program
         bool running = true;
         while (running)
         {
-            Console.WriteLine($"\n1. Gi {pet.Name} mat");
-            Console.WriteLine($"2. Kos med {pet.Name}");
-            Console.WriteLine($"3. Sjekk om {pet.Name} må på do");
+            Console.WriteLine($"\n1. Gi {pet.GetName()} mat");
+            Console.WriteLine($"2. Kos med {pet.GetName()}");
+            Console.WriteLine($"3. Sjekk om {pet.GetName()} må på do");
             Console.WriteLine("4. Avslutt");
 
             string valg = Console.ReadLine();

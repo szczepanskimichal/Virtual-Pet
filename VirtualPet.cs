@@ -8,8 +8,12 @@ public class VirtualPet
     private bool needsCuddle = true;
     private bool needsToilet = false;
 
-    public string Name => name;
-   // public int Age => age;
+    public string GetName()
+    {
+        return name;
+    }
+
+    // public int Age => age;
 
     public VirtualPet(string name)
     {
