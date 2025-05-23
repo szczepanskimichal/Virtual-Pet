@@ -1,23 +1,28 @@
 ﻿using System;
 
+using static System.Console;
+
 class Program
 {
     static void Main()
     {
-        Console.WriteLine("Hvilket dyr vil du ta vare på?");
-        string navn = Console.ReadLine();
+        WriteLine("Hvilket dyr vil du ta vare på, 1 eller 2?");
+        string navn = ReadLine();
 
         VirtualPet pet = new VirtualPet(navn); // Ustawiamy wiek na 2
 
-        bool running = true;
-        while (running)
+        bool play = true;
+        while (play)
         {
-            Console.WriteLine($"\n1. Gi {pet.GetName()} mat");
-            Console.WriteLine($"2. Kos med {pet.GetName()}");
-            Console.WriteLine($"3. Sjekk om {pet.GetName()} må på do");
-            Console.WriteLine("4. Avslutt");
+            WriteLine($"\n1. Gi {pet.GetName()} mat");
+            WriteLine($"2. Kos med {pet.GetName()}");
+            WriteLine($"3. Sjekk om {pet.GetName()} må på do");
+            WriteLine($"4. Sjekk om {pet.GetName()} sover");
+            WriteLine("5. Avslutt");
 
-            string valg = Console.ReadLine();
+           
+
+            string valg = ReadLine();
 
             switch (valg)
             {
@@ -31,11 +36,14 @@ class Program
                     pet.CheckToilet();
                     break;
                 case "4":
-                    running = false;
-                    Console.WriteLine("Ha det bra!");
+                    pet.CheckSleep();
+                    break;
+                case "5":
+                    play = false;
+                    WriteLine("Ha det bra!");
                     break;
                 default:
-                    Console.WriteLine("Ugyldig valg, prøv igjen.");
+                    WriteLine("Ugyldig valg, prøv igjen.");
                     break;
             }
         }

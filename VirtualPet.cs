@@ -1,12 +1,19 @@
 ﻿using System;
+using System.Xml.Linq;
 
 public class VirtualPet
 {
     private string name;
-   // private int age;
+    // private int age;
     private bool isHungry = true;
     private bool needsCuddle = true;
     private bool needsToilet = false;
+    bool sleeping = true;
+
+    public string userInput(string input)
+    {
+        return input;
+    }
 
     public string GetName()
     {
@@ -18,7 +25,7 @@ public class VirtualPet
     public VirtualPet(string name)
     {
         this.name = name;
-       // this.age = age;
+        // this.age = age;
     }
 
     public void Feed()
@@ -60,4 +67,25 @@ public class VirtualPet
             Console.WriteLine($"{name} trenger ikke å gå på do.");
         }
     }
+
+    public void CheckSleep()
+    {
+        if (sleeping)
+        {
+            Console.WriteLine($"{name} Sover ikke. Vil du at han skal legge seg? (yes/no)");
+            string input = Console.ReadLine();
+
+            if (input?.ToLower() == "yes")
+            {
+                sleeping = true;
+                Console.WriteLine($"{name} har lagt seg til å sove.");
+            }
+            else
+            {
+                Console.WriteLine($"{name} Er våken.");
+            }
+        }
+    }
 }
+    
+
